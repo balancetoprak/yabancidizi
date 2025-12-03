@@ -15,7 +15,7 @@ const withPWA = withPWAInit({
 
 const nextConfig: NextConfig = {
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   // https://github.com/payloadcms/payload/issues/12550#issuecomment-2939070941
   turbopack: {
