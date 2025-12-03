@@ -7,7 +7,7 @@ import { Card, CardBody, CardFooter, Chip, Image, Spinner } from "@heroui/react"
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { memo } from "react";
-import { Episode } from "tmdb-ts/dist/types/tv-episode";
+import { Episode } from "tmdb-ts";
 
 interface TvShowEpisodesSelectionProps {
   id: number;

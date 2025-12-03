@@ -9,7 +9,7 @@ import { useDocumentTitle } from "@mantine/hooks";
 import { siteConfig } from "@/config/site";
 import { FaCirclePlay, FaPlay } from "react-icons/fa6";
 import Genres from "@/components/ui/other/Genres";
-import { TvShowDetails } from "tmdb-ts/dist/types/tv-shares";
+import { TvShowDetails } from "tmdb-ts";
 import { Calendar, List, Season } from "@/utils/icons";
 import Rating from "@/components/ui/other/Rating";
 import Trailer from "@/components/ui/overlay/Trailer";

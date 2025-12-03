@@ -127,7 +127,7 @@ const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: n
             prevEpisodeNumber={prevEpisodeNumber}
             startAt={startAt}
           />
-          <TvShowsSeasonsSelection ref={targetRef} id={id} seasons={tvData.seasons} isPlayer />
+          <TvShowsSeasonsSelection ref={targetRef} id={id} seasons={tvData.seasons} />
         </div>
       </Suspense>
     </div>

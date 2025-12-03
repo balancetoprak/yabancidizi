@@ -145,39 +145,23 @@ export const getUserHistories = async (limit: number = 20): ActionResponse<Histo
   }
 };
 
-export const getMovieLastPosition = async (id: number): Promise<number> => {
+export const getMovieLastPosition = async(movie_id: number): Promise<number>  => {
   try {
     const supabase = await createClient();
+    const { data } = await supabase
+    .from("histories")
+    .select("last_position")
+    .eq("movie_id", movie_id)
+    .order("updated_at", { ascending: false })
+    .limit(1);
 
-    const {
-      data: { user },
-      error: userError,
-    } = await supabase.auth.getUser();
-
-    if (userError || !user) {
-      return 0;
-    }
-
-    const { data, error } = await supabase
-      .from("histories")
-      .select("last_position")
-      .eq("user_id", user.id)
-      .eq("media_id", id)
-      .eq("type", "movie");
-
-    if (error) {
-      console.info("History fetch error:", error);
-      return 0;
-    }
-
-    return data?.[0]?.last_position || 0;
-  } catch (error) {
-    console.info("Unexpected error:", error);
+    return data?.[0]?.last_position ?? 0;
+  } catch (e) {
     return 0;
   }
-};
+}
 
-export const getTVLastEpisode = async (id: number): Promise<number> => {
+export const getTVLastEpisode = async (id: number) => {
   try {
     const supabase = await createClient();
 
@@ -187,7 +171,7 @@ export const getTVLastEpisode = async (id: number): Promise<number> => {
     } = await supabase.auth.getUser();
 
     if (userError || !user) {
-      return 0;
+      return { season: 0, episode: 0, last_position: 0 };
     }
 
     const { data, error } = await supabase
@@ -195,17 +179,26 @@ export const getTVLastEpisode = async (id: number): Promise<number> => {
     .select("season, episode, last_position")
     .eq("user_id", user.id)
     .eq("media_id", id)
-    .eq("type", "tv");
+    .eq("type", "tv")
+    .limit(1);
 
     if (error) {
       console.info("History fetch error:", error);
-      return 0;
+      return { season: 0, episode: 0, last_position: 0 };
     }
 
-    return data?.[0] || {season: 0, episode: 0, last_position: 0};
+    return {
+      season: data?.[0]?.season ?? 0,
+      episode: data?.[0]?.episode ?? 0,
+      last_position: data?.[0]?.last_position ?? 0
+    }
   } catch (error) {
     console.info("Unexpected error:", error);
-    return 0;
+    return {
+      season: 0,
+      episode: 0,
+      last_position: 0,
+    };;
   }
 };
 

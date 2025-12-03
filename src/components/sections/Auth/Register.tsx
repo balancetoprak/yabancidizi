@@ -10,7 +10,6 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { useCallback, useState } from "react";
 import { isEmpty } from "@/utils/helpers";
 import { env } from "@/utils/env";
-import GoogleLoginButton from "@/components/ui/button/GoogleLoginButton";
 
 interface AuthRegisterFormProps {
   setForm: (f: "login" | "register" | "forgot") => void;
@@ -83,7 +82,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
       {...register("username")}
       placeholder="Kullanıcı adı"
       className="focus:border-primary focus:ring-primary/40 w-full rounded-2xl border border-white/10 bg-white/5 px-12 py-3 text-white placeholder-gray-500 backdrop-blur-xl transition outline-none focus:ring-2"
-      isDisabled={isSubmitting || isVerifying}
+      disabled={isSubmitting || isVerifying}
       required
       />
       {errors.username?.message && (
@@ -98,7 +97,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
       type="email"
       placeholder="Email"
       className="focus:border-primary focus:ring-primary/40 w-full rounded-2xl border border-white/10 bg-white/5 px-12 py-3 text-white placeholder-gray-500 backdrop-blur-xl transition outline-none focus:ring-2"
-      isDisabled={isSubmitting || isVerifying}
+      disabled={isSubmitting || isVerifying}
       required
       />
       {errors.email?.message && (
@@ -114,7 +113,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
       type="password"
       placeholder="Şifre"
       className="focus:border-primary focus:ring-primary/40 w-full rounded-2xl border border-white/10 bg-white/5 px-12 py-3 text-white placeholder-gray-500 backdrop-blur-xl transition outline-none focus:ring-2"
-      isDisabled={isSubmitting || isVerifying}
+      disabled={isSubmitting || isVerifying}
       required
       />
       {errors.password?.message && (
@@ -129,7 +128,7 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
       type="password"
       placeholder="Şifreni Doğrula"
       className="focus:border-primary focus:ring-primary/40 w-full rounded-2xl border border-white/10 bg-white/5 px-12 py-3 text-white placeholder-gray-500 backdrop-blur-xl transition outline-none focus:ring-2"
-      isDisabled={isSubmitting || isVerifying}
+      disabled={isSubmitting || isVerifying}
       required
       />
       {errors.confirm?.message && (
@@ -159,9 +158,6 @@ const AuthRegisterForm: React.FC<AuthFormProps> = ({ setForm }) => {
     <p className="text-tiny text-default-500 shrink-0">veya</p>
     <Divider className="flex-1" />
     </div>
-    {/*
-      <GoogleLoginButton isDisabled={isSubmitting || isVerifying} />
-      */}
     <p className="text-small text-center">
     Zaten hesabın var mı?{" "}
     <Link
