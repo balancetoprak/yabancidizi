@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Doğrulama • Yabancıdizi</title>
+</head>
+
+<body style="margin:0;padding:0;background:#0b0b0b;color:#fff;font-family:'Poppins',Arial,sans-serif;">
+
+  <div style="position:absolute;inset:0;z-index:-1;">
+    <div style="position:absolute;top:-120px;right:-120px;width:350px;height:350px;
+              background:radial-gradient(circle,#eab30825,#000);filter:blur(70px);"></div>
+    <div style="position:absolute;bottom:-150px;left:-150px;width:400px;height:400px;
+              background:radial-gradient(circle,#eab30820,#000);filter:blur(80px);"></div>
+  </div>
+
+  <table align="center" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+    style="max-width:650px;margin:0 auto;padding:40px 22px;">
+
+    <tr>
+      <td align="center" style="padding-bottom:32px;">
+        <h1 style="margin:0;font-size:40px;font-weight:800;letter-spacing:-1px;color:white;">
+          Yabancıdizi
+        </h1>
+        <p style="margin:8px 0 0;font-size:15px;color:#c5c5c5;">
+          Sinema dünyasının kapılarını aç
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <table width="100%" role="presentation" cellspacing="0" cellpadding="0" border="0" style="background:rgba(255,255,255,0.08);backdrop-filter:blur(18px);
+                    border-radius:20px;border:1px solid rgba(255,255,255,0.14);
+                    overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,0.55);">
+
+          <tr>
+            <td style="padding:48px 36px;text-align:center;">
+
+              <div style="margin-bottom:28px;">
+                <div style="display:inline-block;width:70px;height:70px;border-radius:50%;
+                          background:rgba(255,255,255,0.08);
+                          border:1px solid rgba(255,255,255,0.2);
+                          line-height:70px;font-size:28px;">
+                  ✉
+                </div>
+              </div>
+
+              <!-- TEXT -->
+              <h2 style="margin:0;font-size:26px;font-weight:700;color:#fff;">
+                E-postanı Doğrula
+              </h2>
+
+              <p style="margin:14px 0 32px;font-size:15px;line-height:26px;color:#e5e5e5;">
+                Merhaba! Yabancıdizi'ye katıldığın için teşekkür ederiz. Hesabını aktif etmek için aşağıdaki
+                butona tıkla ve hemen izlemeye başla.
+              </p>
+
+              <a href="{{ .SiteURL }}/api/auth/confirm?token_hash={{ .TokenHash }}&type=email" target="_blank" style="display:inline-block;padding:15px 42px;font-size:16px;font-weight:600;
+                      background:#eab308;color:#000;text-decoration:none;border-radius:12px;
+                      box-shadow:0 0 18px rgba(234,179,8,0.45);">
+                Doğrula
+              </a>
+
+              <hr style="margin:38px 0;border:0;border-top:1px solid rgba(255,255,255,0.12);" />
+
+              <p style="margin:0;font-size:13px;color:#bfbfbf;">
+                Bağlantı çalışmıyorsa aşağıdaki linki kopyala:
+              </p>
+
+              <p style="margin-top:6px;font-size:12px;word-break:break-all;">
+                <a href="{{ .SiteURL }}/api/auth/confirm?token_hash={{ .TokenHash }}&type=email"
+                  style="color:#eab308;text-decoration:none;">
+                  {{ .SiteURL }}/api/auth/confirm?token_hash={{ .TokenHash }}&type=email
+                </a>
+              </p>
+
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td align="center" style="padding-top:32px;">
+        <p style="margin:0;font-size:13px;color:#888;">
+          Eğer bu işlem sana ait değilse güvenle yok sayabilirsin.
+        </p>
+        <p style="margin-top:10px;font-size:12px;color:#666;">
+          © 2025 Yabancıdizi • Tüm hakları saklıdır.
+        </p>
+      </td>
+    </tr>
+
+  </table>
+
+</body>
+
+</html>
