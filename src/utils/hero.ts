@@ -4,14 +4,14 @@ export default heroui({
   themes: {
     light: {
       colors: {
-        // @ts-expect-error
+        //@ts-expect-error this is a custom color name
         "secondary-background": "#F4F4F5",
       },
     },
     dark: {
       colors: {
         background: "#0f0f0f",
-        // @ts-expect-error
+        //@ts-expect-error this is a custom color name
         "secondary-background": "#18181B",
       },
     },
