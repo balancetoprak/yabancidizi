@@ -60,6 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <NuqsAdapter>
             <Providers>
               {IS_PRODUCTION && <Disclaimer />}
+              <TopNavbar />
               <main className={cn("container max-w-full")}>{children}</main>
               <BottomNavbar />
             </Providers>
